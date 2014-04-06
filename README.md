@@ -5,7 +5,7 @@ Drupal [Webform CiviCRM integration](https://drupal.org/project/webform_civicrm)
 
 This modification needs to be redone for every Webform CiviCRM integration module release. Currently this modification is for version `7.x-4.5`.
 
-Modification is only neede for one file and the only modification to wf_crm_webform_postprocess.inc is commenting out line 873 with code `$params += $existing;` in `processRelationship()` function:
+Modification is only neede for one file and the only modification to wf_crm_webform_postprocess.inc is commenting out [line 873](wf_crm_webform_postprocess.inc#L873) with code `$params += $existing;` in `processRelationship()` function:
 
 ```php
 private function processRelationship($params, $cid1, $cid2) {
@@ -20,7 +20,7 @@ private function processRelationship($params, $cid1, $cid2) {
           $perm = $perm == 1 ? 2 : 1;
         }
       }
-      //$params += $existing; //Force creation of new relationship intance on every save
+      //$params += $existing; //Line 873: Force creation of new relationship intance on every save
       $params['contact_id_a'] = $cid1;
       $params['contact_id_b'] = $cid2;
       $params['relationship_type_id'] = $type;
