@@ -5,6 +5,8 @@ Drupal [Webform CiviCRM integration](https://drupal.org/project/webform_civicrm)
 
 This modification needs to be redone for every Webform CiviCRM integration module release because it overwrites files. Currently this modification is for version `7.x-4.5`.
 
+There is also [patch file](relationship_creation.patch) available for changes to `7.x-4.x` [repository](http://git.drupal.org/project/webform_civicrm.git). Current patch file is for commit `5ed78942b992eb600e82da6520d000333550d1fb` that is commited at Sat Mar 15 12:02:39 2014 -0400.
+
 Modification is only needed for one file: wf_crm_webform_postprocess.inc. Main modification is in [line 873](wf_crm_webform_postprocess.inc#L873) with code `$params += $this->createNewRelationship() ? array() : $existing;` in `processRelationship()` function.
 
 `createNewRelationship()` is new function that searches value of field `create_new_relationship`. If it's value is `1` then new relationship is allways created. Other values allow update.
