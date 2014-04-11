@@ -886,7 +886,9 @@ class wf_crm_webform_postprocess extends wf_crm_webform_base {
   }
   
    /**
-   * Create new relationship? Requires create_new_relationship -field to form.
+   * Create new relationship? Requires create_new_relationship -field in form to work. 
+   * Form field value has to be "1" to crete new relationship. All other values are evaluated to false.
+   *
    * @return boolean
    */
   private function createNewRelationship() {
